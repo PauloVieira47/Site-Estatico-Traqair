@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Busca de Produtos + Login com Google + Cadastro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 50px;
+    }
+
+    #search {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+    }
+
+    #suggestions {
+      list-style: none;
+      padding: 0;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      max-width: 300px;
+      position: absolute;
+      background: white;
+      z-index: 1000;
+    }
+
+    #suggestions li {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    #suggestions li:hover {
+      background-color: #f0f0f0;
+    }
+
+    #user-info {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .erro {
+      color: red;
+      font-size: 14px;
+    }
+
+    input[type="password"], input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <!-- Google Identity Services SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+  <h2>Login com Google</h2>
+
+  <div id="g_id_onload"
+       data-client_id="231275693720-8caqnuq2crd3udv9icicigfbqrvj9mmh.apps.googleusercontent.com"
+       data-callback="handleLoginGoogle">
+  </div>
+  <div class="g_id_signin" data-type="standard"></div>
+
+  <div id="user-info"></div>
+
+  <hr style="margin: 40px 0;">
+
+  <h2>Cadastro</h2>
+  <form id="formCadastro">
+    <input type="password" id="senha" name="senha" placeholder="Senha" required><br>
+    <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirmar Senha" required><br>
+    <span id="mensagemErro" class="erro"></span><br>
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <hr style="margin: 40px 0;">
+
+  <h2>Buscar Produtos</h2>
+  <input type="text" id="search" placeholder="Buscar produtos..." autocomplete="off">
+  <ul id="suggestions"></ul>
+
+  <script>
+    // ========== LOGIN GOOGLE ==========
+    function handleLoginGoogle(response) {
+      const token = response.credential;
+      const userData = JSON.parse(atob(token.split('.')[1]));
+
+      document.getElementById('user-info').innerHTML = `
+        Olá, ${userData.name} <br>
+        <img src="${userData.picture}" alt="Foto" width="50" style="border-radius: 50%;">
+      `;
+
+      console.log("Usuário logado com Google:", userData);
+    }
+
+    // ========== VALIDAÇÃO DE SENHAS ==========
+    const form = document.getElementById('formCadastro');
+    const senha = document.getElementById('senha');
+    const confirmarSenha = document.getElementById('confirmarSenha');
+    const mensagemErro = document.getElementById('mensagemErro');
+
+    form.addEventListener('submit', function(event) {
+      if (senha.value !== confirmarSenha.value) {
+        event.preventDefault(); // Impede o envio do formulário
+        mensagemErro.textContent = 'As senhas não coincidem!';
+      } else {
+        mensagemErro.textContent = ''; // Limpa a mensagem de erro
+        alert("Cadastro realizado com sucesso!");
+      }
+    });
+
+    // ========== AUTOCOMPLETE ==========
+    const produtos = [
+      { nome: 'Camiseta Preta' },
+      { nome: 'Calça Jeans' },
+      { nome: 'Tênis Branco' },
+      { nome: 'Boné Azul' },
+      { nome: 'Jaqueta de Couro' },
+      { nome: 'Camiseta Branca' },
+      { nome: 'Moletom Cinza' },
+      { nome: 'Sapato Social' },
+      { nome: 'Relógio Esportivo' },
+      { nome: 'Óculos de Sol' },
+    ];
+
+    const input = document.getElementById('search');
+    const suggestionsList = document.getElementById('suggestions');
+
+    input.addEventListener('input', () => {
+      const query = input.value.trim().toLowerCase();
+      suggestionsList.innerHTML = '';
+
+      if (query === '') return;
+
+      const resultados = produtos
+        .filter(p => p.nome.toLowerCase().includes(query))
+        .slice(0, 5);
+
+      resultados.forEach(produto => {
+        const li = document.createElement('li');
+        li.textContent = produto.nome;
+        li.addEventListener('click', () => {
+          input.value = produto.nome;
+          suggestionsList.innerHTML = '';
+        });
+        suggestionsList.appendChild(li);
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!suggestionsList.contains(e.target) && e.target !== input) {
+        suggestionsList.innerHTML = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
