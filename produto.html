@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Air Sprint Pro — SHORTKICKS</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* =========================
+       Tema
+    ==========================*/
+    :root,[data-bs-theme="dark"]{
+      --bg:#000;--bg-soft:#111;--txt:#fff;--muted:#bdbdbd;--accent:#e41c23;--border:#1f1f1f;--shadow:rgba(0,0,0,.4)
+    }
+    [data-bs-theme="light"]{
+      --bg:#fff;--bg-soft:#f7f7f9;--txt:#111;--muted:#6c757d;--accent:#e41c23;--border:#e5e7eb;--shadow:rgba(0,0,0,.08)
+    }
+    html,body{background:var(--bg);color:var(--txt)}
+    a{color:inherit}
+
+    /* Navbar */
+    .navbar{background:var(--bg)!important;border-color:var(--border)!important}
+    .navbar .navbar-brand{font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+    [data-bs-theme="dark"] .navbar-toggler-icon{
+      background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,.85)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important
+    }
+    [data-bs-theme="light"] .navbar-toggler-icon{
+      background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,.75)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important
+    }
+
+    /* Breadcrumb */
+    .breadcrumb{--bs-breadcrumb-divider:'>';color:var(--muted)}
+
+    /* Galeria */
+    .gallery-main{
+      background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;
+      display:flex;align-items:center;justify-content:center;min-height:520px;overflow:hidden
+    }
+    .gallery-main img{max-width:90%;height:auto;object-fit:contain;transition:transform .25s ease}
+    .gallery-main:hover img{transform:scale(1.06)}
+    .thumb{background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;cursor:pointer}
+    .thumb img{width:100%;height:100%;object-fit:contain;padding:8px}
+    .thumb.active{outline:2px solid var(--accent);outline-offset:2px}
+
+    /* Seletor */
+    .swatch{width:36px;height:36px;border-radius:999px;border:1px solid var(--border);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+    .swatch input{display:none}
+    .swatch.active{outline:2px solid var(--accent);outline-offset:2px}
+    .size-btn{min-width:48px;border:1px solid var(--border);background:var(--bg-soft);color:var(--txt)}
+    .size-btn.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(228,28,35,.3) inset}
+
+    /* Card compra sticky */
+    .buy-card{background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;position:sticky;top:24px}
+    .price{font-weight:800;letter-spacing:.2px}
+
+    /* Botões */
+    .btn-accent{background:var(--accent);color:#000;border:none}
+    .btn-accent:disabled{opacity:.6}
+    .btn-outline-contrast{background:transparent;color:var(--txt);border:1px solid currentColor}
+    .btn-outline-contrast:hover{background:rgba(127,127,127,.12);color:#fff}
+
+    /* Tecnologias (scrollytelling leve) */
+    .tech-card{
+      background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;
+      transform:translateY(18px);opacity:0;transition:transform .6s ease,opacity .6s ease,box-shadow .2s ease
+    }
+    .tech-card.in{transform:none;opacity:1;box-shadow:0 12px 32px var(--shadow)}
+    .tech-icon{width:48px;height:48px;border-radius:999px;background:#222;display:inline-flex;align-items:center;justify-content:center}
+
+    /* Accordion */
+    .accordion-item{background:var(--bg-soft);border-color:var(--border)}
+    .accordion-button{background:var(--bg-soft);color:var(--txt)}
+    .accordion-button:not(.collapsed){color:var(--txt);background:var(--bg-soft)}
+
+    /* Footer e toggle */
+    footer{border-top:1px solid var(--border)}
+    .theme-toggle{position:fixed;right:16px;bottom:16px;z-index:1040;background:#fff;color:#000;border-radius:999px;padding:.6rem .9rem;box-shadow:0 10px 30px rgba(0,0,0,.35);cursor:pointer}
+    [data-bs-theme="light"] .theme-toggle{background:#000;color:#fff}
+
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg sticky-top border-bottom">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 13c7-1 10-4 18-8-2 4-4 8-6 10-3 3-7 4-12 4 3-1 6-3 9-5-3 1-6 2-9-1z"/></svg>
+      SHORTKICKS
+    </a>
+    <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html#swiperShow">Lançamentos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#authModal">Login</a></li>
+        <li class="nav-item ms-lg-3">
+  <button class="btn btn-outline-contrast position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcart" aria-controls="offcart">
+    🛒
+    <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">0</span>
+  </button>
+</li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Conteúdo -->
+<main class="container py-4">
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb" class="mb-3">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item"><a href="index.html#produto">Tênis</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Air Sprint Pro</li>
+    </ol>
+  </nav>
+
+  <div class="row g-4">
+    <!-- Galeria -->
+    <div class="col-12 col-lg-7">
+      <div class="gallery-main mb-3" id="galleryMain" aria-live="polite">
+        <img id="mainImg" alt="Air Sprint Pro - visualização" src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5819.png" />
+      </div>
+      <div class="row g-3">
+        <div class="col-3"><button class="thumb w-100 h-100 p-0 active" data-img="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5819.png" aria-label="Ver imagem 1"><img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5819.png" alt=""></button></div>
+        <div class="col-3"><button class="thumb w-100 h-100 p-0" data-img="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5821.png" aria-label="Ver imagem 2"><img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5821.png" alt=""></button></div>
+        <div class="col-3"><button class="thumb w-100 h-100 p-0" data-img="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5822.png" aria-label="Ver imagem 3"><img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5822.png" alt=""></button></div>
+        <div class="col-3"><button class="thumb w-100 h-100 p-0" data-img="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5826.png" aria-label="Ver imagem 4"><img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5826.png" alt=""></button></div>
+      </div>
+    </div>
+
+    <!-- Buy box -->
+    <div class="col-12 col-lg-5">
+      <div class="buy-card p-4">
+        <h1 class="h3 mb-1">Air Sprint Pro</h1>
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <div class="text-warning" aria-label="Avaliação 4.7 de 5">
+            ★★★★☆
+          </div>
+          <small class="text-secondary">4.7 (128 avaliações)</small>
+        </div>
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <span class="badge text-bg-success">Em estoque</span>
+          <span class="badge rounded-pill" style="background:var(--bg-soft);border:1px solid var(--border);color:var(--muted)">Envio em 24h</span>
+        </div>
+        <div class="d-flex align-items-end gap-3 mb-3">
+          <div>
+            <div class="h4 mb-0 price">R$ 699,90</div>
+            <small class="text-secondary">ou 6x de R$ 116,65</small>
+          </div>
+          <small class="text-secondary ms-auto">Cód. 019283</small>
+        </div>
+
+        <!-- Cores -->
+        <div class="mb-3">
+          <label class="form-label">Cor</label>
+          <div class="d-flex gap-2" id="colorGroup">
+            <label class="swatch" data-color="red" title="Vermelho">
+              <input type="radio" name="color">
+              <span style="display:inline-block;width:24px;height:24px;border-radius:999px;background:#e41c23"></span>
+            </label>
+            <label class="swatch" data-color="blue" title="Azul">
+              <input type="radio" name="color">
+              <span style="display:inline-block;width:24px;height:24px;border-radius:999px;background:#0ea5e9"></span>
+            </label>
+            <label class="swatch" data-color="graphite" title="Grafite">
+              <input type="radio" name="color">
+              <span style="display:inline-block;width:24px;height:24px;border-radius:999px;background:#333"></span>
+            </label>
+            <label class="swatch" data-color="neon" title="Neon">
+              <input type="radio" name="color">
+              <span style="display:inline-block;width:24px;height:24px;border-radius:999px;background:#39ff14"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Tamanhos -->
+        <div class="mb-3">
+          <label class="form-label">Tamanho (BR)</label>
+          <div class="d-flex flex-wrap gap-2" id="sizeGroup" role="group" aria-label="Escolha de tamanho">
+            <button type="button" class="btn size-btn">38</button>
+            <button type="button" class="btn size-btn">39</button>
+            <button type="button" class="btn size-btn">40</button>
+            <button type="button" class="btn size-btn">41</button>
+            <button type="button" class="btn size-btn">42</button>
+            <button type="button" class="btn size-btn">43</button>
+          </div>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button class="btn btn-accent btn-lg" id="buyBtn" disabled>Comprar agora</button>
+          <button class="btn btn-outline-contrast">Adicionar ao carrinho</button>
+          <small class="text-secondary">Frete grátis acima de R$ 299 • Devolução em 30 dias</small>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="accordion" id="accInfo">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#detalhes">Detalhes do produto</button>
+            </h2>
+            <div id="detalhes" class="accordion-collapse collapse" data-bs-parent="#accInfo">
+              <div class="accordion-body">
+                Cabedal em mesh respirável, entressola Air+Foam, solado de borracha com ranhuras de tração, drop 8mm, peso 245g (tam. 40).
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#envio">Envio & prazos</button>
+            </h2>
+            <div id="envio" class="accordion-collapse collapse" data-bs-parent="#accInfo">
+              <div class="accordion-body">
+                Postamos em até 24h úteis. Prazo estimado: Sul/Sudeste 2–5 dias, demais regiões 4–9 dias.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#garantia">Garantia & troca</button>
+            </h2>
+            <div id="garantia" class="accordion-collapse collapse" data-bs-parent="#accInfo">
+              <div class="accordion-body">
+                Garantia contra defeitos de fabricação (90 dias). Troca grátis em 30 dias se não servir.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Tecnologias -->
+  <section class="py-5">
+    <h2 class="h3 mb-4">Tecnologias</h2>
+    <div class="row g-3">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="tech-card p-4 h-100">
+          <div class="tech-icon mb-3">🫧</div>
+          <h3 class="h5">Air+Foam</h3>
+          <p class="text-secondary mb-0">Resposta imediata e amortecimento progressivo para treinos diários e provas.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="tech-card p-4 h-100">
+          <div class="tech-icon mb-3">🌀</div>
+          <h3 class="h5">Mesh Pro</h3>
+          <p class="text-secondary mb-0">Cabedal ultraleve e respirável que mantém o pé seco e estável.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="tech-card p-4 h-100">
+          <div class="tech-icon mb-3">🦶</div>
+          <h3 class="h5">Traction+ Grip</h3>
+          <p class="text-secondary mb-0">Solado com ranhuras estratégicas para aderência em piso seco e molhado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="py-5">
+  <div class="container">
+    <div class="row gy-3">
+      <div class="col-12 col-md-6">
+        <p class="mb-1">© 2025 SHORTKICKS</p>
+        <small class="text-secondary">Desenvolvido por [Seu Nome] — Projeto acadêmico.</small>
+      </div>
+      <div class="col-12 col-md-6 text-md-end">
+        <a href="#" class="me-3 text-decoration-none text-secondary">Privacidade</a>
+        <a href="#" class="text-decoration-none text-secondary">Contato</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal auth (opcional, igual do index) -->
+<div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="background:var(--bg); border:1px solid var(--border);">
+      <div class="modal-header">
+        <h5 class="modal-title">Entrar ou criar conta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs mb-3" role="tablist">
+          <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#loginTab" role="tab">Login</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#signupTab" role="tab">Cadastro</button></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="loginTab" role="tabpanel">
+            <form>
+              <div class="mb-3"><label class="form-label">E-mail</label><input type="email" class="form-control" required></div>
+              <div class="mb-3"><label class="form-label">Senha</label><input type="password" class="form-control" required></div>
+              <div class="d-flex justify-content-between align-items-center">
+                <button type="submit" class="btn btn-accent">Entrar</button>
+                <a href="#" class="small">Esqueci minha senha</a>
+              </div>
+            </form>
+          </div>
+          <div class="tab-pane fade" id="signupTab" role="tabpanel">
+            <form>
+              <div class="row g-3">
+                <div class="col-12 col-md-6"><label class="form-label">Nome</label><input type="text" class="form-control" required></div>
+                <div class="col-12 col-md-6"><label class="form-label">Sobrenome</label><input type="text" class="form-control" required></div>
+                <div class="col-12"><label class="form-label">E-mail</label><input type="email" class="form-control" required></div>
+                <div class="col-12"><label class="form-label">Senha</label><input type="password" class="form-control" required></div>
+              </div>
+              <div class="d-grid mt-3"><button type="submit" class="btn btn-accent">Criar conta</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer border-0"></div>
+    </div>
+  </div>
+</div>
+<!-- Offcanvas: Carrinho -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcart" aria-labelledby="offcartLabel" style="--bs-offcanvas-bg: var(--bg); color: var(--txt);">
+  <div class="offcanvas-header border-bottom" style="border-color: var(--border);">
+    <h5 id="offcartLabel" class="mb-0">Seu carrinho</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <div id="cartItems" class="vstack gap-3"></div>
+    <div class="mt-auto pt-3 border-top" style="border-color: var(--border);">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="text-secondary">Subtotal</span>
+        <strong id="cartSubtotal">R$ 0,00</strong>
+      </div>
+      <div class="d-grid gap-2">
+        <a href="#" class="btn btn-accent" id="checkoutBtn">Finalizar compra</a>
+        <button class="btn btn-outline-contrast" id="clearCartBtn">Limpar carrinho</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Toggle de tema -->
+<div class="theme-toggle" id="themeToggle" role="button" aria-pressed="false" aria-label="Alternar tema">Alternar tema</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Restaurar tema salvo (mesma lógica do index)
+  (function(){
+    try{const saved=localStorage.getItem('theme');if(saved)document.documentElement.setAttribute('data-bs-theme',saved)}catch(e){}
+  })();
+
+  // Toggle tema
+  const rootHtml=document.documentElement, btnToggle=document.getElementById('themeToggle');
+  btnToggle.addEventListener('click',()=>{
+    const current=rootHtml.getAttribute('data-bs-theme')||'dark';
+    const next=current==='dark'?'light':'dark';
+    rootHtml.setAttribute('data-bs-theme',next);
+    try{localStorage.setItem('theme',next)}catch(e){}
+    btnToggle.setAttribute('aria-pressed',String(next==='dark'));
+  });
+
+  // Galeria - troca imagem
+  const mainImg=document.getElementById('mainImg');
+  document.querySelectorAll('.thumb').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.thumb').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const src=btn.getAttribute('data-img');
+      mainImg.setAttribute('src',src);
+    });
+  });
+
+  // Mapear cores -> imagem principal
+  const colorMap={
+    red:"https://pngimg.com/uploads/running_shoes/running_shoes_PNG5819.png",
+    blue:"https://pngimg.com/uploads/running_shoes/running_shoes_PNG5821.png",
+    graphite:"https://pngimg.com/uploads/running_shoes/running_shoes_PNG5822.png",
+    neon:"https://pngimg.com/uploads/running_shoes/running_shoes_PNG5826.png"
+  };
+
+  // Seletor de cor
+  let selectedColor=null, selectedSize=null;
+  const colorGroup=document.getElementById('colorGroup');
+  colorGroup.querySelectorAll('.swatch').forEach(s=>{
+    s.addEventListener('click',()=>{
+      colorGroup.querySelectorAll('.swatch').forEach(x=>x.classList.remove('active'));
+      s.classList.add('active');
+      selectedColor=s.getAttribute('data-color');
+      // troca imagem principal e marca thumb correspondente
+      const src=colorMap[selectedColor];
+      mainImg.setAttribute('src',src);
+      document.querySelectorAll('.thumb').forEach(b=>{
+        b.classList.toggle('active', b.getAttribute('data-img')===src);
+      });
+      checkBuyReady();
+    });
+  });
+
+  // Seletor de tamanho
+  const sizeGroup=document.getElementById('sizeGroup');
+  sizeGroup.querySelectorAll('.size-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      sizeGroup.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active'); selectedSize=btn.textContent.trim(); checkBuyReady();
+    });
+  });
+
+  // Habilitar compra quando cor + tamanho escolhidos
+  const buyBtn=document.getElementById('buyBtn');
+  function checkBuyReady(){ buyBtn.disabled=!(selectedColor && selectedSize); }
+
+  buyBtn.addEventListener('click',()=>{
+    const msg=`Comprado: Air Sprint Pro | Cor: ${selectedColor} | Tamanho: ${selectedSize}`;
+    alert(msg);
+  });
+
+  // Scrollytelling leve: entra com efeito
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.18});
+  document.querySelectorAll('.tech-card').forEach(el=>io.observe(el));
+</script>
+<script>
+/* ========= Carrinho (localStorage) ========= */
+const Cart = (() => {
+  const KEY = 'shortkicks_cart';
+  const fmt = n => 'R$ ' + n.toFixed(2).replace('.', ',');
+
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || []; }catch(e){ return []; } }
+  function save(items){ localStorage.setItem(KEY, JSON.stringify(items)); render(); }
+
+  function add(item){
+    const items = load();
+    const idx = items.findIndex(i => i.id===item.id && i.color===item.color && i.size===item.size);
+    if(idx>=0){ items[idx].qty += item.qty||1; }
+    else{ items.push({...item, qty:item.qty||1}); }
+    save(items);
+    toast('Adicionado ao carrinho!');
+  }
+
+  function remove(index){
+    const items = load(); items.splice(index,1); save(items);
+  }
+
+  function setQty(index, qty){
+    const items = load();
+    items[index].qty = Math.max(1, qty|0);
+    save(items);
+  }
+
+  function clear(){ save([]); }
+
+  function subtotal(){ return load().reduce((s,i)=> s + i.price * i.qty, 0); }
+
+  // Render UI
+  function render(){
+    const items = load();
+    // badge
+    const badge = document.getElementById('cartBadge');
+    if(badge){ badge.textContent = items.reduce((s,i)=>s+i.qty,0); }
+
+    // list
+    const list = document.getElementById('cartItems');
+    if(list){
+      list.innerHTML = '';
+      items.forEach((it, idx)=>{
+        const row = document.createElement('div');
+        row.className = 'd-flex gap-3 align-items-center';
+        row.innerHTML = `
+          <img src="${it.img}" alt="${it.title}" style="width:72px;height:72px;object-fit:contain;background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;padding:6px">
+          <div class="flex-grow-1">
+            <div class="d-flex justify-content-between">
+              <strong>${it.title}</strong>
+              <button class="btn btn-sm btn-outline-contrast" data-remove="${idx}">Remover</button>
+            </div>
+            <div class="small text-secondary">${it.cat||''} ${it.color?('• '+it.color):''} ${it.size?('• '+it.size):''}</div>
+            <div class="d-flex align-items-center gap-2 mt-1">
+              <span class="small text-secondary">Qtd.</span>
+              <input type="number" min="1" value="${it.qty}" data-qty="${idx}" class="form-control form-control-sm" style="width:80px;background:var(--bg);border-color:var(--border);color:var(--txt)">
+              <span class="ms-auto fw-semibold">${fmt(it.price * it.qty)}</span>
+            </div>
+          </div>
+        `;
+        list.appendChild(row);
+      });
+
+      // bind qty/remove
+      list.querySelectorAll('[data-remove]').forEach(btn=>{
+        btn.addEventListener('click',()=> remove(+btn.getAttribute('data-remove')));
+      });
+      list.querySelectorAll('[data-qty]').forEach(inp=>{
+        inp.addEventListener('input',()=> setQty(+inp.getAttribute('data-qty'), +inp.value));
+      });
+    }
+
+    // subtotal
+    const sub = document.getElementById('cartSubtotal');
+    if(sub){ sub.textContent = fmt(subtotal()); }
+  }
+
+  // Toast simples
+  function toast(msg){
+    try{
+      const t = document.createElement('div');
+      t.textContent = msg;
+      t.style.position='fixed'; t.style.right='16px'; t.style.bottom='70px';
+      t.style.background='var(--bg-soft)'; t.style.color='var(--txt)';
+      t.style.border='1px solid var(--border)'; t.style.borderRadius='12px';
+      t.style.padding='.6rem .9rem'; t.style.boxShadow='0 10px 30px rgba(0,0,0,.35)';
+      t.style.zIndex='2000';
+      document.body.appendChild(t);
+      setTimeout(()=>{ t.remove(); }, 1500);
+    }catch(e){}
+  }
+
+  // Botões do offcanvas
+  window.addEventListener('DOMContentLoaded', ()=>{
+    const clearBtn = document.getElementById('clearCartBtn');
+    if(clearBtn) clearBtn.addEventListener('click', ()=> clear());
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    if(checkoutBtn) checkoutBtn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      alert('Checkout fictício: aqui você integraria com sua página de pagamento.');
+    });
+    render();
+  });
+
+  return { add, load, render, clear };
+})();
+</script>
+</body>
+</html>
