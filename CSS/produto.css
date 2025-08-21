@@ -1,0 +1,73 @@
+
+    /* =========================
+       Tema
+    ==========================*/
+    :root,[data-bs-theme="dark"]{
+      --bg:#000;--bg-soft:#111;--txt:#fff;--muted:#bdbdbd;--accent:#e41c23;--border:#1f1f1f;--shadow:rgba(0,0,0,.4)
+    }
+    [data-bs-theme="light"]{
+      --bg:#fff;--bg-soft:#f7f7f9;--txt:#111;--muted:#6c757d;--accent:#e41c23;--border:#e5e7eb;--shadow:rgba(0,0,0,.08)
+    }
+    html,body{background:var(--bg);color:var(--txt)}
+    a{color:inherit}
+
+    /* Navbar */
+    .navbar{background:var(--bg)!important;border-color:var(--border)!important}
+    .navbar .navbar-brand{font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+    [data-bs-theme="dark"] .navbar-toggler-icon{
+      background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,.85)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important
+    }
+    [data-bs-theme="light"] .navbar-toggler-icon{
+      background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,.75)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important
+    }
+
+    /* Breadcrumb */
+    .breadcrumb{--bs-breadcrumb-divider:'>';color:var(--muted)}
+
+    /* Galeria */
+    .gallery-main{
+      background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;
+      display:flex;align-items:center;justify-content:center;min-height:520px;overflow:hidden
+    }
+    .gallery-main img{max-width:90%;height:auto;object-fit:contain;transition:transform .25s ease}
+    .gallery-main:hover img{transform:scale(1.06)}
+    .thumb{background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;cursor:pointer}
+    .thumb img{width:100%;height:100%;object-fit:contain;padding:8px}
+    .thumb.active{outline:2px solid var(--accent);outline-offset:2px}
+
+    /* Seletor */
+    .swatch{width:36px;height:36px;border-radius:999px;border:1px solid var(--border);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+    .swatch input{display:none}
+    .swatch.active{outline:2px solid var(--accent);outline-offset:2px}
+    .size-btn{min-width:48px;border:1px solid var(--border);background:var(--bg-soft);color:var(--txt)}
+    .size-btn.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(228,28,35,.3) inset}
+
+    /* Card compra sticky */
+    .buy-card{background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;position:sticky;top:24px}
+    .price{font-weight:800;letter-spacing:.2px}
+
+    /* Botões */
+    .btn-accent{background:var(--accent);color:#000;border:none}
+    .btn-accent:disabled{opacity:.6}
+    .btn-outline-contrast{background:transparent;color:var(--txt);border:1px solid currentColor}
+    .btn-outline-contrast:hover{background:rgba(127,127,127,.12);color:#fff}
+
+    /* Tecnologias (scrollytelling leve) */
+    .tech-card{
+      background:var(--bg-soft);border:1px solid var(--border);border-radius:16px;
+      transform:translateY(18px);opacity:0;transition:transform .6s ease,opacity .6s ease,box-shadow .2s ease
+    }
+    .tech-card.in{transform:none;opacity:1;box-shadow:0 12px 32px var(--shadow)}
+    .tech-icon{width:48px;height:48px;border-radius:999px;background:#222;display:inline-flex;align-items:center;justify-content:center}
+
+    /* Accordion */
+    .accordion-item{background:var(--bg-soft);border-color:var(--border)}
+    .accordion-button{background:var(--bg-soft);color:var(--txt)}
+    .accordion-button:not(.collapsed){color:var(--txt);background:var(--bg-soft)}
+
+    /* Footer e toggle */
+    footer{border-top:1px solid var(--border)}
+    .theme-toggle{position:fixed;right:16px;bottom:16px;z-index:1040;background:#fff;color:#000;border-radius:999px;padding:.6rem .9rem;box-shadow:0 10px 30px rgba(0,0,0,.35);cursor:pointer}
+    [data-bs-theme="light"] .theme-toggle{background:#000;color:#fff}
+
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
