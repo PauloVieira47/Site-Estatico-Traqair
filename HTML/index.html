@@ -186,65 +186,115 @@
     <div class="container">
       <div class="row gy-3">
         <div class="col-12 col-md-6">
-          <p class="mb-1">© 2025 SHORTKICKS</p>
-          <small class="text-secondary">Desenvolvido por [Seu Nome] — Projeto acadêmico.</small>
+          <p class="mb-1">© 2025 TRAQAIR</p>
+          <small class="text-secondary">Desenvolvido pela TRAQAIR — Loja Espotiva.</small>
         </div>
         <div class="col-12 col-md-6 text-md-end">
           <a href="#" class="me-3 text-decoration-none text-secondary">Privacidade</a>
-          <a href="#" class="text-decoration-none text-secondary">Contato</a>
+          <a href="https://github.com/PauloVieira47/Site-Estatico-Traqair.git" class="text-decoration-none text-secondary">Contato</a>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- MODAL LOGIN/CADASTRO -->
-  <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content" style="background:var(--bg); border:1px solid var(--border);">
-        <div class="modal-header">
-          <h5 class="modal-title">Entrar ou criar conta</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-        </div>
-        <div class="modal-body">
-          <!-- Tabs -->
-          <ul class="nav nav-tabs mb-3" role="tablist">
-            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#loginTab" role="tab">Login</button></li>
-            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#signupTab" role="tab">Cadastro</button></li>
-          </ul>
-          <div class="tab-content">
-            <div class="tab-pane fade show active" id="loginTab" role="tabpanel">
-              <form>
-                <div class="mb-3"><label class="form-label">E-mail</label><input type="email" class="form-control" required></div>
-                <div class="mb-3"><label class="form-label">Senha</label><input type="password" class="form-control" required></div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <button type="submit" class="btn btn-accent">Entrar</button>
-                  <a href="#" class="small">Esqueci minha senha</a>
+<div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="background:var(--bg); border:1px solid var(--border);">
+      <div class="modal-header">
+        <h5 class="modal-title">Entrar ou criar conta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Tabs -->
+        <ul class="nav nav-tabs mb-3" role="tablist">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#loginTab" role="tab">Login</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#signupTab" role="tab">Cadastro</button>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <!-- LOGIN -->
+          <div class="tab-pane fade show active" id="loginTab" role="tabpanel">
+            <form id="loginForm" novalidate>
+              <div class="mb-3">
+                <label class="form-label">E-mail</label>
+                <input type="email" class="form-control email-validate" required>
+                <div class="invalid-feedback">Digite um e-mail válido (somente minúsculas e com ponto).</div>
+              </div>
+              <div class="mb-3 position-relative">
+                <label class="form-label">Senha</label>
+                <div class="input-group">
+                  <input type="password" class="form-control" required  placeholder="Mínimo 6 caracteres">
+                  <button class="btn btn-outline-secondary toggle-password" type="button">👁️</button>
+                  
                 </div>
-                <hr class="my-4">
-                <button type="button" class="btn btn-outline-contrast w-100 mb-2">Continuar com Google</button>
-                <button type="button" class="btn btn-outline-contrast w-100">Continuar com Facebook</button>
-              </form>
-            </div>
-            <div class="tab-pane fade" id="signupTab" role="tabpanel">
-              <form>
-                <div class="row g-3">
-                  <div class="col-12 col-md-6"><label class="form-label">Nome</label><input type="text" class="form-control" required></div>
-                  <div class="col-12 col-md-6"><label class="form-label">Sobrenome</label><input type="text" class="form-control" required></div>
-                  <div class="col-12"><label class="form-label">E-mail</label><input type="email" class="form-control" required></div>
-                  <div class="col-12"><label class="form-label">Senha</label><input type="password" class="form-control" required></div>
+                <div class="invalid-feedback">Digite sua senha.</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <button type="submit" class="btn btn-accent">Entrar</button>
+                <a href="#" class="small">Esqueci minha senha</a>
+              </div>
+            </form>
+          </div>
+
+          <!-- CADASTRO -->
+          <div class="tab-pane fade" id="signupTab" role="tabpanel">
+            <form id="signupForm" novalidate>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Nome</label>
+                  <input type="text" class="form-control" required>
+                  <div class="invalid-feedback">Digite seu nome.</div>
                 </div>
-                <div class="d-grid mt-3"><button type="submit" class="btn btn-accent">Criar conta</button></div>
-              </form>
-            </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Sobrenome</label>
+                  <input type="text" class="form-control" required>
+                  <div class="invalid-feedback">Digite seu sobrenome.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">E-mail</label>
+                  <input type="email" class="form-control email-validate" id="signupEmail" required>
+                  <div class="invalid-feedback">Digite um e-mail válido (somente minúsculas e com ponto).</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Senha</label>
+                  <div class="input-group">
+                    <input type="password" class="form-control" id="signupPassword" minlength="6" required
+                     placeholder="Mínimo 6 caracteres">
+                    <button class="btn btn-outline-secondary toggle-password" type="button">👁️</button>
+                  </div>
+                  <div class="invalid-feedback">A senha deve ter pelo menos 6 caracteres.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Confirmar Senha</label>
+                  <div class="input-group">
+                    <input type="password" class="form-control" id="signupConfirmPassword" required
+                     placeholder="Mínimo 6 caracteres">
+                    <button class="btn btn-outline-secondary toggle-password" type="button">👁️</button>
+                  </div>
+                  <div class="invalid-feedback">As senhas não coincidem.</div>
+                </div>
+              </div>
+              <div class="d-grid mt-3">
+                <button type="submit" class="btn btn-accent">Criar conta</button>
+              </div>
+            </form>
           </div>
         </div>
-        <div class="modal-footer border-0"></div>
       </div>
+      <div class="modal-footer border-0"></div>
     </div>
   </div>
+</div>
+
 
   <!-- Toggle tema -->
-  <div class="theme-toggle" id="themeToggle" role="button" aria-pressed="false" aria-label="Alternar tema">Alternar tema</div>
+  <div class="theme-toggle"
+   id="themeToggle" role="button" aria-pressed="false" aria-label="Alternar tema">Alternar tema</div>
 
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
