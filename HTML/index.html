@@ -37,8 +37,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Produtos</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#produto">Lançamentos</a></li>
-              <li><a class="dropdown-item" href="#produto">Mais vendidos</a></li>
+              <li><a class="dropdown-item" href="#lancamentos">Lançamentos</a></li>
+              <li><a class="dropdown-item" href="#mais-vendidos">Mais vendidos</a></li>
               <li><a class="dropdown-item" href="categoria.html">Categorias</a></li>
             </ul>
           </li>
@@ -73,32 +73,48 @@
   </header>
 
   <!-- CAROUSEL BOOTSTRAP (banners) -->
-  <section class="py-4 border-top">
-    <div id="promoCarousel" class="carousel slide container" data-bs-ride="carousel">
-      <div class="carousel-inner rounded-4 overflow-hidden">
-        <div class="carousel-item active">
-          <img src="/imagens/sapato-vermelho.png" class="d-block w-100" alt="Banner 1">
-          <div class="carousel-caption text-start">
-            <h5>Linha Performance</h5>
-            <p>Leveza e resposta para qualquer distância.</p>
-          </div>
+<section class="py-4 border-top">
+  <div id="promoCarousel" class="carousel slide container" data-bs-ride="carousel">
+    <div class="carousel-inner rounded-4 overflow-hidden">
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-center align-items-center" style="height: 250px; background:#e41c23;">
+          <img src="/imagens/tenis-teste.png" class="d-block" style="max-height: 275px;" alt="Banner 1">
         </div>
-        <div class="carousel-item">
-          <img src="/imagens/sapato-amarelo.png" class="d-block w-100" alt="Banner 2">
-          <div class="carousel-caption">
-            <h5>Drop limitado</h5>
-            <p>Cores exclusivas semanalmente.</p>
-          </div>
+        <div class="carousel-caption bottom-0 text-start">
+          <h6 class="mb-1">Linha Performance</h6>
+          <p class="small">Leveza e resposta para qualquer distância.</p>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#promoCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#promoCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      </button>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center align-items-center" style="height: 250px; background:#e41c23;">
+          <img src="/imagens/AIR+FORCE+1+(GS).png" class="d-block" style="max-height: 348px;
+    margin-bottom: 74px;" alt="Banner 2">
+        </div>
+        <div class="carousel-caption bottom-0 text-start">
+          <h6 class="mb-1">Linha Performance</h6>
+          <p class="small">Leveza e resposta para qualquer distância.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center align-items-center" style="height: 250px; background:#e41c23;">
+          <img src="/imagens/Nike-Azul.webp " class="d-block" style="max-height: 300px;" alt="Banner 2">
+        </div>
+        <div class="carousel-caption bottom-0 text-start">
+          <h6 class="mb-1">Linha Performance</h6>
+          <p class="small">Leveza e resposta para qualquer distância.</p>
+        </div>
+      </div>
     </div>
-  </section>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#promoCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#promoCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+</section>
+
 
   <!-- SWIPER COVERFLOW -->
   <section class="container py-5" id="swiperShow">
@@ -117,7 +133,7 @@
   </section>
 
   <!-- PRODUTOS -->
-  <section class="container py-5" id="produto">
+  <section class="container py-5" id="lancamentos">
     <h2 class="h1 mb-4">Lançamentos</h2>
     <div class="row g-4">
       <!-- Produto 1 -->
@@ -170,16 +186,59 @@
       </div>
     </div>
 
-    <!-- PAGINAÇÃO -->
-    <nav aria-label="Paginação de produtos" class="mt-4">
-      <ul class="pagination pagination-lg">
-        <li class="page-item disabled"><span class="page-link">Anterior</span></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item active" aria-current="page"><span class="page-link">2</span></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
-      </ul>
-    </nav>
+
+     <h2 class="h1 mb-4" id="mais-vendidos">Mais vendidos</h2>
+    <div class="row g-4">
+      <!-- Produto 1 -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="product-card p-3">
+          <img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5819.png" class="w-100 mb-3" alt="Air Sprint Pro" loading="lazy">
+          <h3 class="h5 mb-1">Air Sprint Pro</h3>
+          <p class="text-secondary mb-2">Corrida • Unissex</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <strong class="price">R$ 699,90</strong>
+            <a href="#" class="btn btn-sm btn-outline-contrast">Ver</a>
+          </div>
+        </div>
+      </div>
+      <!-- Produto 2 -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="product-card p-3">
+          <img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5821.png" class="w-100 mb-3" alt="Air Sprint Neon" loading="lazy">
+          <h3 class="h5 mb-1">Air Sprint Neon</h3>
+          <p class="text-secondary mb-2">Corrida • Unissex</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <strong class="price">R$ 729,90</strong>
+            <a href="#" class="btn btn-sm btn-outline-contrast">Ver</a>
+          </div>
+        </div>
+      </div>
+      <!-- Produto 3 -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="product-card p-3">
+          <img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5822.png" class="w-100 mb-3" alt="Air Sprint Graphite" loading="lazy">
+          <h3 class="h5 mb-1">Air Sprint Graphite</h3>
+          <p class="text-secondary mb-2">Corrida • Unissex</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <strong class="price">R$ 749,90</strong>
+            <a href="#" class="btn btn-sm btn-outline-contrast">Ver</a>
+          </div>
+        </div>
+      </div>
+      <!-- Produto 4 -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="product-card p-3">
+          <img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5826.png" class="w-100 mb-3" alt="Air Sprint LTD" loading="lazy">
+          <h3 class="h5 mb-1">Air Sprint LTD</h3>
+          <p class="text-secondary mb-2">Corrida • Unissex</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <strong class="price">R$ 799,90</strong>
+            <a href="#" class="btn btn-sm btn-outline-contrast">Ver</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- RODAPÉ -->
@@ -197,6 +256,8 @@
       </div>
     </div>
   </footer>
+
+
 
   <!-- MODAL LOGIN/CADASTRO -->
   <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
@@ -316,6 +377,8 @@
       </div>
     </div>
   </div>
+<!-- Toggle de tema -->
+<div class="theme-toggle" id="themeToggle" role="button" aria-pressed="false" aria-label="Alternar tema">Alternar tema</div>
 
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
