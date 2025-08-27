@@ -1,153 +1,200 @@
+/* =========================
+   Temas (dark / light)
+==========================*/
 
-    /* =========================
-       Temas (dark / light)
-    ==========================*/
-    :root,
-    [data-bs-theme="dark"] {
-      --bg: #000;
-      --bg-soft: #111;
-      --txt: #fff;
-      --muted: #bdbdbd;
-      --accent: #e41c23;
-      --border: #1f1f1f;
-      --shadow: rgba(0,0,0,.4);
-    }
-    [data-bs-theme="light"] {
-      --bg: #fff;
-      --bg-soft: #f7f7f9;
-      --txt: #111;
-      --muted: #6c757d;
-      --accent: #e41c23;
-      --border: #e5e7eb;
-      --shadow: rgba(0,0,0,.08);
-    }
+/* DARK THEME */
+[data-bs-theme="dark"],
+:root {
+  background-color: #000;
+  color: #fff;
+}
+[data-bs-theme="dark"] html,
+[data-bs-theme="dark"] body {
+  background: #000;
+  color: #fff;
+}
+[data-bs-theme="dark"] .navbar {
+  background-color: #000 !important;
+  border-color: #1f1f1f !important;
+}
+[data-bs-theme="dark"] .navbar,
+[data-bs-theme="dark"] .navbar .nav-link,
+[data-bs-theme="dark"] .navbar .navbar-brand {
+  color: #fff;
+}
+[data-bs-theme="dark"] .dropdown-menu {
+  background: #111;
+  color: #fff;
+  border-color: #1f1f1f;
+  box-shadow: 0 12px 32px rgba(0,0,0,.4);
+}
+[data-bs-theme="dark"] .dropdown-item {
+  color: #fff;
+}
+[data-bs-theme="dark"] .dropdown-item:hover {
+  background: rgba(127,127,127,.12);
+  color: #fff;
+}
 
-    html, body { background: var(--bg); color: var(--txt); }
-    img { max-width: 100%; height: auto; }
+/* LIGHT THEME */
+[data-bs-theme="light"] {
+  background-color: #fff;
+  color: #111;
+}
+[data-bs-theme="light"] html,
+[data-bs-theme="light"] body {
+  background: #fff;
+  color: #111;
+}
+[data-bs-theme="light"] .navbar {
+  background-color: #fff !important;
+  border-color: #e5e7eb !important;
+}
+[data-bs-theme="light"] .navbar,
+[data-bs-theme="light"] .navbar .nav-link,
+[data-bs-theme="light"] .navbar .navbar-brand {
+  color: #111;
+}
+[data-bs-theme="light"] .dropdown-menu {
+  background: #f7f7f9;
+  color: #111;
+  border-color: #e5e7eb;
+  box-shadow: 0 12px 32px rgba(0,0,0,.08);
+}
+[data-bs-theme="light"] .dropdown-item {
+  color: #111;
+}
+[data-bs-theme="light"] .dropdown-item:hover {
+  background: rgba(127,127,127,.12);
+  color: #111;
+}
 
-    /* =========================
-       Navbar + Dropdown (tema adaptativo)
-    ==========================*/
-    .navbar { background-color: var(--bg) !important; border-color: var(--border) !important; }
-    .navbar,
-    .navbar .nav-link,
-    .navbar .navbar-brand { color: var(--txt); }
-    .navbar .nav-link:hover { color: #fff; }
-    .navbar .navbar-brand { font-weight: 800; letter-spacing: .5px; text-transform: uppercase; }
+/* =========================
+   Botões
+==========================*/
+.btn-accent {
+  background: #e41c23;
+  color: #000;
+  border: none;
+}
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(228,28,35,.35);
+}
+.btn-outline-contrast {
+  background: transparent;
+  border: 1px solid currentColor;
+}
+[data-bs-theme="dark"] .btn-outline-contrast {
+  color: #fff;
+}
+[data-bs-theme="light"] .btn-outline-contrast {
+  color: #111;
+}
+.btn-outline-contrast:hover {
+  background: rgba(127,127,127,.12);
+  color: #fff;
+}
 
-    /* Toggler visível nos dois temas */
-    [data-bs-theme="dark"] .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.85)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-    }
-    [data-bs-theme="light"] .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,0.75)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-    }
+/* =========================
+   Hero
+==========================*/
+.hero {
+  min-height: 90dvh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(1200px 600px at 70% 30%, #141414, #000);
+  overflow: hidden;
+}
+[data-bs-theme="light"] .hero {
+  background: radial-gradient(1200px 600px at 70% 30%, #f4f5f7, #ffffff);
+}
+.hero .display-1 {
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: .95;
+}
 
-    /* Dropdown base (sem -dark fixo) */
-    .dropdown-menu {
-      background: var(--bg-soft);
-      color: var(--txt);
-      border-color: var(--border);
-      box-shadow: 0 12px 32px var(--shadow);
-    }
-    .dropdown-item { color: var(--txt); }
-    .dropdown-item:hover { background: rgba(127,127,127,.12); color: #fff; }
+/* =========================
+   Product Cards
+==========================*/
+.product-card {
+  background: #111;
+  border: 1px solid #1f1f1f;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  height: 100%;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,.4);
+  border-color: rgba(127,127,127,.25);
+}
+.product-card img {
+  transition: transform .35s ease;
+}
+.product-card:hover img {
+  transform: scale(1.04) rotate(-.5deg);
+}
 
-    /* Submenu */
-    .dropdown-submenu { position: relative; }
-    .dropdown-submenu > .dropdown-menu { top: 0; left: 100%; margin-left: .1rem; }
+/* =========================
+   Swiper
+==========================*/
+.swiper {
+  width: 100%;
+  padding: 40px 0 70px 0;
+}
+.swiper-slide {
+  background: #111;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 420px;
+  border: 1px solid #1f1f1f;
+}
+.swiper-slide img {
+  width: 75%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 48px rgba(0,0,0,.6));
+  transition: transform .3s ease;
+}
+.swiper-slide:hover img {
+  transform: translateY(-6px);
+}
 
-    /* =========================
-       Botões
-    ==========================*/
-    .btn-accent { background: var(--accent); color: #000; border: none; }
-    .btn-accent:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(228,28,35,.35); }
+/* =========================
+   Rodapé
+==========================*/
+footer {
+  background: #000;
+  border-top: 1px solid #1f1f1f;
+}
+[data-bs-theme="light"] footer {
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+}
 
-    /* Outline que se adapta ao tema */
-    .btn-outline-contrast {
-      background: transparent; color: var(--txt);
-      border: 1px solid currentColor;
-    }
-    .btn-outline-contrast:hover { background: rgba(127,127,127,.12); color: #fff; }
-
-    /* =========================
-       Hero
-    ==========================*/
-    .hero {
-      min-height: 90dvh; display: grid; place-items: center;
-      background: radial-gradient(1200px 600px at 70% 30%, #141414, #000);
-      overflow: hidden;
-    }
-    [data-bs-theme="light"] .hero{
-      background: radial-gradient(1200px 600px at 70% 30%, #f4f5f7, #ffffff);
-    }
-    .hero .display-1 { font-weight: 900; letter-spacing: 1px; text-transform: uppercase; line-height: .95; }
-    .hero-cta .btn { padding: .9rem 1.4rem; border-radius: 999px; transition: transform .2s ease, box-shadow .2s ease; }
-
-    /* =========================
-       Cards de produto
-    ==========================*/
-    .product-card {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-      height: 100%;
-    }
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px var(--shadow);
-      border-color: rgba(127,127,127,.25);
-    }
-    .product-card img { transition: transform .35s ease; }
-    .product-card:hover img { transform: scale(1.04) rotate(-.5deg); }
-    .price { font-weight: 800; letter-spacing: .2px; }
-
-    /* =========================
-       Swiper (coverflow 3D)
-    ==========================*/
-    .swiper { width: 100%; padding: 40px 0 70px 0; }
-    .swiper-slide {
-      background: var(--bg-soft);
-      border-radius: 20px;
-      display: flex; align-items: center; justify-content: center;
-      height: 420px; border: 1px solid var(--border);
-    }
-    .swiper-slide img {
-      width: 75%; height: auto; object-fit: contain;
-      filter: drop-shadow(0 24px 48px rgba(0,0,0,.6));
-      transition: transform .3s ease;
-    }
-    .swiper-slide:hover img { transform: translateY(-6px); }
-
-    /* =========================
-       Carousel Bootstrap (banners)
-    ==========================*/
-    .carousel-caption { text-shadow: 0 6px 16px rgba(0,0,0,.45); }
-
-    /* =========================
-       Rodapé
-    ==========================*/
-    footer { background: var(--bg); border-top: 1px solid var(--border); }
-
-    /* =========================
-       Toggle de tema
-    ==========================*/
-    .theme-toggle {
-      position: fixed; right: 16px; bottom: 16px; z-index: 1040;
-      background: #fff; color: #000; border-radius: 999px; padding: .6rem .9rem;
-      cursor: pointer; user-select: none;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    [data-bs-theme="dark"] .theme-toggle { background: #fff; color: #000; }
-    [data-bs-theme="light"] .theme-toggle { background: #000; color: #fff; }
-
-    /* Acessibilidade / reduz animação */
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
-    }
-
-[data-bs-theme=dark] .carousel .carousel-caption, [data-bs-theme=dark].carousel .carousel-caption {
-    color: #ffffff;
+/* =========================
+   Toggle Tema
+==========================*/
+.theme-toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1040;
+  background: #fff;
+  color: #000;
+  border-radius: 999px;
+  padding: .6rem .9rem;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+[data-bs-theme="light"] .theme-toggle {
+  background: #000;
+  color: #fff;
 }
