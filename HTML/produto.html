@@ -1,284 +1,464 @@
 <!doctype html>
 <html lang="pt-br" data-bs-theme="dark">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Air Sprint Pro — SHORTKICKS</title>
 
-  <!-- Bootstrap -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TRAQAIR</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/CSS/produto.css">
-  
+
+ <link rel="icon" type="image/png" href="/imagens/icon-favicon.png">
 </head>
+
 <body>
-
-<!-- NAV -->
-<nav class="navbar navbar-expand-lg sticky-top border-bottom">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 13c7-1 10-4 18-8-2 4-4 8-6 10-3 3-7 4-12 4 3-1 6-3 9-5-3 1-6 2-9-1z"/></svg>
-      SHORTKICKS
-    </a>
-    <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
-    <div id="nav" class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html#swiperShow">Lançamentos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#authModal">Login</a></li>
-        <li class="nav-item ms-lg-3">
-  <button class="btn btn-outline-contrast position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcart" aria-controls="offcart">
-    🛒
-    <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">0</span>
-  </button>
-</li>
-      </ul>
+  <!-- NAV igual -->
+  <nav class="navbar navbar-expand-lg sticky-top border-bottom">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true">
+          <path d="M3 13c7-1 10-4 18-8-2 4-4 8-6 10-3 3-7 4-12 4 3-1 6-3 9-5-3 1-6 2-9-1z" />
+        </svg>
+        <span>TRAQAIR</span>
+      </a>
+      <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#nav"><span
+          class="navbar-toggler-icon"></span></button>
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html#lancamentos">Lançamentos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#authModal">Login</a>
+          </li>
+          <li class="nav-item ms-lg-3"><button class="btn btn-outline-contrast position-relative">🛒<span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">0</span></button>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
-
-<!-- Conteúdo -->
-<main class="container py-4">
-  <!-- Breadcrumb -->
-  <nav aria-label="breadcrumb" class="mb-3">
-    <ol class="breadcrumb mb-0">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="index.html#produto">Tênis</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Air Sprint Pro</li>
-    </ol>
   </nav>
 
-  <div class="row g-4">
-    <!-- Galeria -->
-    <div class="col-12 col-lg-7">
-      <div class="gallery-main mb-3" id="galleryMain" aria-live="polite">
-        <img id="mainImg" alt="Air Sprint Pro - visualização" src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5819.png" />
+  <main class="container py-4">
+    <div class="row g-4">
+      <!-- Galeria -->
+      <div class="col-12 col-lg-7">
+        <div class="gallery-main mb-3">
+          <img id="mainImg" src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5819.png" class="img-fluid"
+            alt="Air Sprint Pro" />
+        </div>
+        <div class="row g-3">
+          <div class="col-3">
+            <button class="thumb w-100 h-100 p-0 active"
+              data-img="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5819.png"
+              data-product="Air Sprint Pro">
+              <img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5819.png" alt="Air Sprint Pro 1">
+            </button>
+          </div>
+          <div class="col-3">
+            <button class="thumb w-100 h-100 p-0"
+              data-img="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5821.png"
+              data-product="Air Sprint Neon">
+              <img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5821.png" alt="Air Sprint Neon 2">
+            </button>
+          </div>
+          <div class="col-3">
+            <button class="thumb w-100 h-100 p-0"
+              data-img="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5822.png"
+              data-product="Air Sprint Graphite">
+              <img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5822.png" alt="Air Sprint Graphite 3">
+            </button>
+          </div>
+          <div class="col-3">
+            <button class="thumb w-100 h-100 p-0" data-img="/imagens/tenis-verde.png" data-product="Air Sprint LTD">
+              <img src="/imagens/tenis-verde.png" alt="Air Sprint LTD 4">
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="row g-3">
-        <div class="col-3"><button class="thumb w-100 h-100 p-0 active" data-img="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5819.png" aria-label="Ver imagem 1"><img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5819.png" alt=""></button></div>
-        <div class="col-3"><button class="thumb w-100 h-100 p-0" data-img="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5821.png" aria-label="Ver imagem 2"><img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5821.png" alt=""></button></div>
-        <div class="col-3"><button class="thumb w-100 h-100 p-0" data-img="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5822.png" aria-label="Ver imagem 3"><img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5822.png" alt=""></button></div>
-        <div class="col-3"><button class="thumb w-100 h-100 p-0" data-img="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5826.png" aria-label="Ver imagem 4"><img src="https://pngimg.com/uploads/running_shoes/running_shoes_PNG5826.png" alt=""></button></div>
-      </div>
-    </div>
 
-    <!-- Buy box -->
-    <div class="col-12 col-lg-5">
-      <div class="buy-card p-4">
-        <h1 class="h3 mb-1">Air Sprint Pro</h1>
-        <div class="d-flex align-items-center gap-2 mb-2">
-          <div class="text-warning" aria-label="Avaliação 4.7 de 5">
-            ★★★★☆
-          </div>
-          <small class="text-secondary">4.7 (128 avaliações)</small>
-        </div>
-        <div class="d-flex align-items-center gap-2 mb-3">
-          <span class="badge text-bg-success">Em estoque</span>
-          <span class="badge rounded-pill" style="background:var(--bg-soft);border:1px solid var(--border);color:var(--muted)">Envio em 24h</span>
-        </div>
-        <div class="d-flex align-items-end gap-3 mb-3">
-          <div>
-            <div class="h4 mb-0 price">R$ 699,90</div>
-            <small class="text-secondary">ou 6x de R$ 116,65</small>
-          </div>
-          <small class="text-secondary ms-auto">Cód. 019283</small>
-        </div>
-
-        <!-- Cores -->
-        <div class="mb-3">
-          <label class="form-label">Cor</label>
-          <div class="d-flex gap-2" id="colorGroup">
-            <label class="swatch" data-color="red" title="Vermelho">
-              <input type="radio" name="color">
-              <span style="display:inline-block;width:24px;height:24px;border-radius:999px;background:#e41c23"></span>
-            </label>
-            <label class="swatch" data-color="blue" title="Azul">
-              <input type="radio" name="color">
-              <span style="display:inline-block;width:24px;height:24px;border-radius:999px;background:#0ea5e9"></span>
-            </label>
-            <label class="swatch" data-color="graphite" title="Grafite">
-              <input type="radio" name="color">
-              <span style="display:inline-block;width:24px;height:24px;border-radius:999px;background:#333"></span>
-            </label>
-            <label class="swatch" data-color="neon" title="Neon">
-              <input type="radio" name="color">
-              <span style="display:inline-block;width:24px;height:24px;border-radius:999px;background:#39ff14"></span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Tamanhos -->
-        <div class="mb-3">
-          <label class="form-label">Tamanho (BR)</label>
-          <div class="d-flex flex-wrap gap-2" id="sizeGroup" role="group" aria-label="Escolha de tamanho">
-            <button type="button" class="btn size-btn">38</button>
-            <button type="button" class="btn size-btn">39</button>
-            <button type="button" class="btn size-btn">40</button>
-            <button type="button" class="btn size-btn">41</button>
-            <button type="button" class="btn size-btn">42</button>
-            <button type="button" class="btn size-btn">43</button>
-          </div>
-        </div>
-
-       <div class="d-grid gap-2">
-  <button class="btn btn-accent btn-lg" id="buyBtn" disabled>Comprar agora</button>
-  <button class="btn btn-outline-contrast" id="addToCartBtn">Adicionar ao carrinho</button>
-  <small class="text-secondary">Frete grátis acima de R$ 299 • Devolução em 30 dias</small>
-</div>
-
-
-        <hr class="my-4">
-
-        <div class="accordion" id="accInfo">
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#detalhes">Detalhes do produto</button>
-            </h2>
-            <div id="detalhes" class="accordion-collapse collapse" data-bs-parent="#accInfo">
-              <div class="accordion-body">
-                Cabedal em mesh respirável, entressola Air+Foam, solado de borracha com ranhuras de tração, drop 8mm, peso 245g (tam. 40).
+      <!-- Coluna dos produtos -->
+      <div class="col-12 col-lg-5">
+        <div class="d-grid gap-4">
+          <!-- Air Sprint Pro -->
+          <div class="buy-card p-4 active" data-product="AirSprintPro">
+            <h1 class="h3 mb-1">Air Sprint Pro</h1>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <div class="text-warning">★★★★☆</div>
+              <small class="text-secondary">4.7 (128 avaliações)</small>
+            </div>
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <span class="badge text-bg-success">Em estoque</span>
+              <span class="badge rounded-pill" style="background:#111;border:1px solid #333;color:#bdbdbd">Envio em
+                24h</span>
+            </div>
+            <div class="d-flex align-items-end gap-3 mb-3">
+              <div>
+                <div class="h4 mb-0 price">R$ 699,90</div>
+                <small class="text-secondary">ou 6x de R$ 116,65</small>
+              </div>
+              <small class="text-secondary ms-auto">Cód. 019283</small>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tamanho (BR)</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn size-btn">38</button>
+                <button type="button" class="btn size-btn">39</button>
+                <button type="button" class="btn size-btn">40</button>
+                <button type="button" class="btn size-btn">41</button>
+                <button type="button" class="btn size-btn">42</button>
+                <button type="button" class="btn size-btn">43</button>
+              </div>
+            </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-accent btn-lg buy-btn">Comprar agora</button>
+              <button class="btn btn-outline-contrast">Adicionar ao carrinho</button>
+              <small class="text-secondary">Frete grátis acima de R$ 299 • Devolução em 30 dias</small>
+            </div>
+            <hr class="my-4">
+            <div class="accordion" id="accInfoPro">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#detalhesPro">Detalhes do produto</button>
+                </h2>
+                <div id="detalhesPro" class="accordion-collapse collapse" data-bs-parent="#accInfoPro">
+                  <div class="accordion-body">Cabedal em mesh respirável, entressola Air+Foam, solado de borracha com
+                    ranhuras de tração, drop 8mm, peso 245g (tam. 40).</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#diferencialPro">Diferencial</button>
+                </h2>
+                <div id="diferencialPro" class="accordion-collapse collapse" data-bs-parent="#accInfoPro">
+                  <div class="accordion-body">Drop 8mm e amortecimento progressivo para treinos diários.</div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#envio">Envio & prazos</button>
-            </h2>
-            <div id="envio" class="accordion-collapse collapse" data-bs-parent="#accInfo">
-              <div class="accordion-body">
-                Postamos em até 24h úteis. Prazo estimado: Sul/Sudeste 2–5 dias, demais regiões 4–9 dias.
+
+          <!-- Air Sprint Neon -->
+          <div class="buy-card p-4" data-product="AirSprintNeon">
+            <h1 class="h3 mb-1">Air Sprint Neon</h1>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <div class="text-warning">★★★★☆</div>
+              <small class="text-secondary">4.6 (95 avaliações)</small>
+            </div>
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <span class="badge text-bg-success">Em estoque</span>
+              <span class="badge rounded-pill" style="background:#111;border:1px solid #333;color:#bdbdbd">Envio em
+                24h</span>
+            </div>
+            <div class="d-flex align-items-end gap-3 mb-3">
+              <div>
+                <div class="h4 mb-0 price">R$ 729,90</div>
+                <small class="text-secondary">ou 6x de R$ 121,65</small>
+              </div>
+              <small class="text-secondary ms-auto">Cód. 019284</small>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tamanho (BR)</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn size-btn">38</button>
+                <button type="button" class="btn size-btn">39</button>
+                <button type="button" class="btn size-btn">40</button>
+                <button type="button" class="btn size-btn">41</button>
+                <button type="button" class="btn size-btn">42</button>
+                <button type="button" class="btn size-btn">43</button>
+              </div>
+            </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-accent btn-lg buy-btn">Comprar agora</button>
+              <button class="btn btn-outline-contrast">Adicionar ao carrinho</button>
+              <small class="text-secondary">Frete grátis acima de R$ 299 • Devolução em 30 dias</small>
+            </div>
+            <hr class="my-4">
+            <div class="accordion" id="accInfoNeon">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#detalhesNeon">Detalhes do produto</button>
+                </h2>
+                <div id="detalhesNeon" class="accordion-collapse collapse" data-bs-parent="#accInfoNeon">
+                  <div class="accordion-body">Cabedal neon refletivo, entressola Air+Foam Light, solado antiderrapante,
+                    drop 7mm.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#diferencialNeon">Diferencial</button>
+                </h2>
+                <div id="diferencialNeon" class="accordion-collapse collapse" data-bs-parent="#accInfoNeon">
+                  <div class="accordion-body">Visual chamativo para corrida noturna.</div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#garantia">Garantia & troca</button>
-            </h2>
-            <div id="garantia" class="accordion-collapse collapse" data-bs-parent="#accInfo">
-              <div class="accordion-body">
-                Garantia contra defeitos de fabricação (90 dias). Troca grátis em 30 dias se não servir.
+
+          <!-- Air Sprint Graphite -->
+          <div class="buy-card p-4" data-product="AirSprintGraphite">
+            <h1 class="h3 mb-1">Air Sprint Graphite</h1>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <div class="text-warning">★★★★☆</div>
+              <small class="text-secondary">4.8 (102 avaliações)</small>
+            </div>
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <span class="badge text-bg-success">Em estoque</span>
+              <span class="badge rounded-pill" style="background:#111;border:1px solid #333;color:#bdbdbd">Envio em
+                24h</span>
+            </div>
+            <div class="d-flex align-items-end gap-3 mb-3">
+              <div>
+                <div class="h4 mb-0 price">R$ 749,90</div>
+                <small class="text-secondary">ou 6x de R$ 124,98</small>
+              </div>
+              <small class="text-secondary ms-auto">Cód. 019285</small>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tamanho (BR)</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn size-btn">38</button>
+                <button type="button" class="btn size-btn">39</button>
+                <button type="button" class="btn size-btn">40</button>
+                <button type="button" class="btn size-btn">41</button>
+                <button type="button" class="btn size-btn">42</button>
+                <button type="button" class="btn size-btn">43</button>
+              </div>
+            </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-accent btn-lg buy-btn">Comprar agora</button>
+              <button class="btn btn-outline-contrast">Adicionar ao carrinho</button>
+              <small class="text-secondary">Frete grátis acima de R$ 299 • Devolução em 30 dias</small>
+            </div>
+            <hr class="my-4">
+            <div class="accordion" id="accInfoGraphite">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#detalhesGraphite">Detalhes do produto</button>
+                </h2>
+                <div id="detalhesGraphite" class="accordion-collapse collapse" data-bs-parent="#accInfoGraphite">
+                  <div class="accordion-body">Cabedal grafite respirável, entressola Air+Foam, reforço lateral, solado
+                    antiderrapante.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#diferencialGraphite">Diferencial</button>
+                </h2>
+                <div id="diferencialGraphite" class="accordion-collapse collapse" data-bs-parent="#accInfoGraphite">
+                  <div class="accordion-body">Maior estabilidade lateral para corrida intensa.</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-      </div>
-    </div>
-  </div>
-
-  <!-- Tecnologias -->
-  <section class="py-5">
-    <h2 class="h3 mb-4">Tecnologias</h2>
-    <div class="row g-3">
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="tech-card p-4 h-100">
-          <div class="tech-icon mb-3">🫧</div>
-          <h3 class="h5">Air+Foam</h3>
-          <p class="text-secondary mb-0">Resposta imediata e amortecimento progressivo para treinos diários e provas.</p>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="tech-card p-4 h-100">
-          <div class="tech-icon mb-3">🌀</div>
-          <h3 class="h5">Mesh Pro</h3>
-          <p class="text-secondary mb-0">Cabedal ultraleve e respirável que mantém o pé seco e estável.</p>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="tech-card p-4 h-100">
-          <div class="tech-icon mb-3">🦶</div>
-          <h3 class="h5">Traction+ Grip</h3>
-          <p class="text-secondary mb-0">Solado com ranhuras estratégicas para aderência em piso seco e molhado.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- Footer -->
-<footer class="py-5">
-  <div class="container">
-    <div class="row gy-3">
-      <div class="col-12 col-md-6">
-        <p class="mb-1">© 2025 SHORTKICKS</p>
-        <small class="text-secondary">Desenvolvido por [Seu Nome] — Projeto acadêmico.</small>
-      </div>
-      <div class="col-12 col-md-6 text-md-end">
-        <a href="#" class="me-3 text-decoration-none text-secondary">Privacidade</a>
-        <a href="#" class="text-decoration-none text-secondary">Contato</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Modal auth (opcional, igual do index) -->
-<div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" style="background:var(--bg); border:1px solid var(--border);">
-      <div class="modal-header">
-        <h5 class="modal-title">Entrar ou criar conta</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-      </div>
-      <div class="modal-body">
-        <ul class="nav nav-tabs mb-3" role="tablist">
-          <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#loginTab" role="tab">Login</button></li>
-          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#signupTab" role="tab">Cadastro</button></li>
-        </ul>
-        <div class="tab-content">
-          <div class="tab-pane fade show active" id="loginTab" role="tabpanel">
-            <form>
-              <div class="mb-3"><label class="form-label">E-mail</label><input type="email" class="form-control" required></div>
-              <div class="mb-3"><label class="form-label">Senha</label><input type="password" class="form-control" required></div>
-              <div class="d-flex justify-content-between align-items-center">
-                <button type="submit" class="btn btn-accent">Entrar</button>
-                <a href="#" class="small">Esqueci minha senha</a>
+          <!-- Air Sprint LTD -->
+          <div class="buy-card p-4 " data-product="AirSprintLTD">
+            <h1 class="h3 mb-1">Air Sprint LTD</h1>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <div class="text-warning">★★★★★</div>
+              <small class="text-secondary">5.0 (50 avaliações)</small>
+            </div>
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <span class="badge text-bg-success">Em estoque</span>
+              <span class="badge rounded-pill" style="background:#111;border:1px solid #333;color:#bdbdbd">Envio em
+                24h</span>
+            </div>
+            <div class="d-flex align-items-end gap-3 mb-3">
+              <div>
+                <div class="h4 mb-0 price">R$ 799,90</div>
+                <small class="text-secondary">ou 6x de R$ 133,32</small>
               </div>
-            </form>
-          </div>
-          <div class="tab-pane fade" id="signupTab" role="tabpanel">
-            <form>
-              <div class="row g-3">
-                <div class="col-12 col-md-6"><label class="form-label">Nome</label><input type="text" class="form-control" required></div>
-                <div class="col-12 col-md-6"><label class="form-label">Sobrenome</label><input type="text" class="form-control" required></div>
-                <div class="col-12"><label class="form-label">E-mail</label><input type="email" class="form-control" required></div>
-                <div class="col-12"><label class="form-label">Senha</label><input type="password" class="form-control" required></div>
+              <small class="text-secondary ms-auto">Cód. 019286</small>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tamanho (BR)</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn size-btn">38</button>
+                <button type="button" class="btn size-btn">39</button>
+                <button type="button" class="btn size-btn">40</button>
+                <button type="button" class="btn size-btn">41</button>
+                <button type="button" class="btn size-btn">42</button>
+                <button type="button" class="btn size-btn">43</button>
               </div>
-              <div class="d-grid mt-3"><button type="submit" class="btn btn-accent">Criar conta</button></div>
-            </form>
+            </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-accent btn-lg buy-btn">Comprar agora</button>
+              <button class="btn btn-outline-contrast">Adicionar ao carrinho</button>
+              <small class="text-secondary">Frete grátis acima de R$ 299 • Devolução em 30 dias</small>
+            </div>
+            <hr class="my-4">
+            <div class="accordion" id="accInfoLTD">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#detalhesLTD">Detalhes do produto</button>
+                </h2>
+                <div id="detalhesLTD" class="accordion-collapse collapse" data-bs-parent="#accInfoLTD">
+                  <div class="accordion-body">Cabedal premium em knit, entressola Air+Foam Pro, solado com grip extra.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#diferencialLTD">Diferencial</button>
+                </h2>
+                <div id="diferencialLTD" class="accordion-collapse collapse" data-bs-parent="#accInfoLTD">
+                  <div class="accordion-body">Modelo limitado e exclusivo, perfeito para colecionadores.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- End d-grid -->
+      </div> <!-- End coluna produtos -->
+
+    </div>
+  </main>
+
+  <!-- MODAL LOGIN/CADASTRO -->
+  <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background:var(--bg); border:1px solid var(--border);">
+        <div class="modal-header">
+          <h5 class="modal-title">Entrar ou criar conta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Tabs -->
+          <ul class="nav nav-tabs mb-3" role="tablist">
+            <li class="nav-item">
+              <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#loginTab" role="tab">Login</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#signupTab" role="tab">Cadastro</button>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <!-- LOGIN -->
+            <div class="tab-pane fade show active" id="loginTab" role="tabpanel">
+              <form id="loginForm" novalidate>
+                <div class="mb-3">
+                  <label class="form-label">E-mail</label>
+                  <input type="email" class="form-control email-validate" required>
+                  <div class="invalid-feedback">Digite um e-mail válido.</div>
+                </div>
+                <div class="mb-3 position-relative">
+                  <label class="form-label">Senha</label>
+                  <div class="input-group">
+                    <input type="password" class="form-control" required>
+                    <button class="btn btn-outline-secondary toggle-password" type="button">👁️</button>
+                  </div>
+                  <div class="invalid-feedback">Digite sua senha.</div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="submit" class="btn btn-accent">Entrar</button>
+                  <a href="#" class="small" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal"
+                    data-bs-dismiss="modal">Esqueci minha senha</a>
+                </div>
+              </form>
+            </div>
+
+            <!-- CADASTRO -->
+            <div class="tab-pane fade" id="signupTab" role="tabpanel">
+              <form id="signupForm" novalidate>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Nome</label>
+                    <input type="text" class="form-control" required>
+                    <div class="invalid-feedback">Digite seu nome.</div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Sobrenome</label>
+                    <input type="text" class="form-control" required>
+                    <div class="invalid-feedback">Digite seu sobrenome.</div>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">E-mail</label>
+                    <input type="email" class="form-control email-validate" required>
+                    <div class="invalid-feedback">Digite um e-mail válido.</div>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">Senha</label>
+                    <div class="input-group">
+                      <input type="password" class="form-control" minlength="6" required>
+                      <button class="btn btn-outline-secondary toggle-password" type="button">👁️</button>
+                    </div>
+                    <div class="invalid-feedback">A senha deve ter pelo menos 6 caracteres.</div>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">Confirmar Senha</label>
+                    <div class="input-group">
+                      <input type="password" class="form-control" required>
+                      <button class="btn btn-outline-secondary toggle-password" type="button">👁️</button>
+                    </div>
+                    <div class="invalid-feedback">As senhas não coincidem.</div>
+                  </div>
+                </div>
+                <div class="d-grid mt-3">
+                  <button type="submit" class="btn btn-accent">Criar conta</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-      <div class="modal-footer border-0"></div>
     </div>
   </div>
-</div>
-<!-- Offcanvas: Carrinho -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcart" aria-labelledby="offcartLabel" style="--bs-offcanvas-bg: var(--bg); color: var(--txt);">
-  <div class="offcanvas-header border-bottom" style="border-color: var(--border);">
-    <h5 id="offcartLabel" class="mb-0">Seu carrinho</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
-  </div>
-  <div class="offcanvas-body d-flex flex-column">
-    <div id="cartItems" class="vstack gap-3"></div>
-    <div class="mt-auto pt-3 border-top" style="border-color: var(--border);">
-      <div class="d-flex justify-content-between align-items-center mb-2">
-        <span class="text-secondary">Subtotal</span>
-        <strong id="cartSubtotal">R$ 0,00</strong>
-      </div>
-      <div class="d-grid gap-2">
-        <a href="#" class="btn btn-accent" id="checkoutBtn">Finalizar compra</a>
-        <button class="btn btn-outline-contrast" id="clearCartBtn">Limpar carrinho</button>
+
+  <!-- MODAL ESQUECI MINHA SENHA -->
+  <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background:var(--bg); border:1px solid var(--border);">
+        <div class="modal-header">
+          <h5 class="modal-title">Recuperar senha</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="forgotForm" novalidate>
+            <div class="mb-3">
+
+              <label class="form-label">E-mail</label>
+              <input type="email" class="form-control email-validate" required>
+              <div class="invalid-feedback">Digite um e-mail válido.</div>
+            </div>
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-accent">Enviar link de recuperação</button>
+        </div>
+        </form>
+        <div class="alert alert-success mt-3 d-none" id="forgotSuccess">
+          ✅ Se este e-mail estiver cadastrado, você receberá instruções de recuperação.
+        </div>
       </div>
     </div>
   </div>
-</div>
+  </div>
 
 
+  <footer class="py-5">
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-12 col-md-6">
+          <p class="mb-1">© 2025 TRAQAIR</p>
+          <small class="text-secondary">Desenvolvido pela TRAQAIR — Loja Espotiva.</small>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a href="#" class="me-3 text-decoration-none text-secondary">Privacidade</a>
+          <a href="https://github.com/PauloVieira47/Site-Estatico-Traqair.git"
+            class="text-decoration-none text-secondary">Contato</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Toggle de tema -->
-<div class="theme-toggle" id="themeToggle" role="button" aria-pressed="false" aria-label="Alternar tema">Alternar tema</div>
-
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/JS/produto.js"></script>
-
+  <script src="/JS/produto.js"></script>
+  <script src="/JS/validacoes.js"></script>
 </body>
+
 </html>

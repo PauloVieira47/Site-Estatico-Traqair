@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------------- TOGGLE DE SENHA 👁️/🙈 ---------------- */
+ 
   document.querySelectorAll('.toggle-password').forEach(btn => {
     btn.addEventListener('click', () => {
       const input = btn.previousElementSibling;
