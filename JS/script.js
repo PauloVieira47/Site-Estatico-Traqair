@@ -62,3 +62,16 @@ document.querySelectorAll('.categoria').forEach(cat => {
     });
   });
 });
+
+
+
+
+  const rootHtml = document.documentElement;
+    const btnToggle = document.getElementById('themeToggle');
+    btnToggle.addEventListener('click', ()=>{
+      const current = rootHtml.getAttribute('data-bs-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      rootHtml.setAttribute('data-bs-theme', next);
+      try { localStorage.setItem('theme', next); } catch(e){}
+      btnToggle.setAttribute('aria-pressed', String(next === 'dark'));
+    });

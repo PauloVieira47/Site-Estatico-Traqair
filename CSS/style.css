@@ -1,17 +1,26 @@
 /* =========================
    Temas (dark / light)
 ==========================*/
-:root
- {
+:root,
+[data-bs-theme="dark"] {
   --bg: #000;
   --bg-soft: #111;
   --txt: #fff;
   --muted: #bdbdbd;
   --accent: #e41c23;
   --border: #1f1f1f;
-  --shadow: rgba(0, 0, 0, .4)
+  --shadow: rgba(0,0,0,.4);
 }
 
+[data-bs-theme="light"] {
+  --bg: #fff;
+  --bg-soft: #f7f7f9;
+  --txt: #111;
+  --muted: #6c757d;
+  --accent: #e41c23;
+  --border: #e5e7eb;
+  --shadow: rgba(0,0,0,.08);
+}
 
 /* DARK THEME */
 [data-bs-theme="dark"],
@@ -20,7 +29,6 @@
   color: #fff;
 }
 
-[data-bs-theme="dark"] html,
 [data-bs-theme="dark"] body {
   background: #000;
   color: #fff;
@@ -59,7 +67,6 @@
   color: #111;
 }
 
-[data-bs-theme="light"] html,
 [data-bs-theme="light"] body {
   background: #fff;
   color: #111;
@@ -112,8 +119,10 @@
 }
 
 [data-bs-theme="dark"] .btn-outline-contrast {
+ 
   color: #fff;
 }
+
 
 [data-bs-theme="light"] .btn-outline-contrast {
   color: #111;
@@ -124,6 +133,10 @@
   color: #fff;
 }
 
+[data-bs-theme="light"] .btn-outline-contrast:hover  {
+  background: #000000 !important;
+  color: #fff;
+}
 /* =========================
    Hero
 ==========================*/
@@ -149,6 +162,14 @@
 /* =========================
    Product Cards
 ==========================*/
+[data-bs-theme="light"] .product-card {
+  background: #fff;
+  border:2px solid #030303;
+}
+[data-bs-theme="light"] .product-card:hover {
+  border:3px solid #030303;
+  box-shadow: 0 12px 32px rgb(0, 0, 0);
+}
 .product-card {
   background: #111;
   border: 1px solid #1f1f1f;
@@ -178,6 +199,11 @@
 .swiper {
   width: 100%;
   padding: 40px 0 70px 0;
+}
+
+[data-bs-theme="light"] .swiper-slide {
+  background: #dddddd;
+  border:2px solid #000000
 }
 
 .swiper-slide {
@@ -230,13 +256,13 @@ footer {
   cursor: pointer;
   user-select: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  font-size: 1.2rem;
 }
 
 [data-bs-theme="light"] .theme-toggle {
   background: #000;
   color: #fff;
 }
-
 
 .modal-content {
   background: var(--bg);
