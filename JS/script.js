@@ -50,7 +50,8 @@ document.querySelectorAll('.categoria').forEach(cat => {
   cat.addEventListener('click', () => {
     const faixa = cat.dataset.faixa;
     const container = document.getElementById('produtos-filtrados');
-    container.innerHTML = ''; 
+    container.innerHTML = ''; // limpa produtos anteriores
+
     document.querySelectorAll('.produto').forEach(prod => {
       const preco = parseFloat(prod.dataset.preco);
 
@@ -60,7 +61,7 @@ document.querySelectorAll('.categoria').forEach(cat => {
         (faixa === 'ate399' && preco > 299 && preco <= 399) ||
         (faixa === 'acima499' && preco > 499)
       ) {
-        container.appendChild(prod.cloneNode(true)); 
+        container.appendChild(prod.cloneNode(true)); // clona produto e adiciona
       }
     });
   });
@@ -68,3 +69,13 @@ document.querySelectorAll('.categoria').forEach(cat => {
 
 
 
+
+  const rootHtml = document.documentElement;
+    const btnToggle = document.getElementById('themeToggle');
+    btnToggle.addEventListener('click', ()=>{
+      const current = rootHtml.getAttribute('data-bs-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      rootHtml.setAttribute('data-bs-theme', next);
+      try { localStorage.setItem('theme', next); } catch(e){}
+      btnToggle.setAttribute('aria-pressed', String(next === 'dark'));
+    });
