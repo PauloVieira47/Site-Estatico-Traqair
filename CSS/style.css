@@ -1,6 +1,4 @@
-/* =========================
-   Temas (dark / light)
-==========================*/
+
 :root,
 [data-bs-theme="dark"] {
   --bg: #000;
@@ -22,7 +20,6 @@
   --shadow: rgba(0,0,0,.08);
 }
 
-/* DARK THEME */
 [data-bs-theme="dark"],
 :root {
   background-color: #000;

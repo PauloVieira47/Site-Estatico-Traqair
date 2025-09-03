@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
-  /* ---------------- FORMULÁRIO DE CADASTRO ---------------- */
+  //FORMULÁRIO DE CADASTRO
   const signupForm = document.getElementById('signupForm');
   if (signupForm) {
     const password = document.getElementById('signupPassword');
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (valid) {
-        signupForm.submit(); // ou sua lógica de envio
+        signupForm.submit(); 
       }
 
       signupForm.classList.add('was-validated');
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------------- FORMULÁRIO "ESQUECI MINHA SENHA" ---------------- */
+  //FORMULÁRIO "ESQUECI MINHA SENHA
   const forgotForm = document.getElementById('forgotForm');
   const forgotEmail = document.getElementById('forgotEmail');
   const forgotSuccess = document.getElementById('forgotSuccess');
