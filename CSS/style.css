@@ -272,3 +272,16 @@ footer {
   border: 1px solid var(--border);
   border-radius: 12px
 }
+
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px); /* começa deslocado para baixo */
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0); /* volta à posição normal */
+}

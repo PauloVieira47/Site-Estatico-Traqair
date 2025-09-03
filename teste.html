@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professor Fofo</title>
+  <style>
+    /* ===== Fundo animado ===== */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+      background: #fce4ec;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 192, 203, 0.6);
+      animation: rise 10s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      10% { opacity: 0.6; }
+      50% { opacity: 0.8; }
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* ===== Cartão do professor ===== */
+    .card {
+      position: relative;
+      z-index: 10;
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      max-width: 300px;
+      animation: bounce 1s ease;
+    }
+
+    .card img {
+      width: 150px;
+      border-radius: 50%;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .card p {
+      margin-top: 20px;
+      font-size: 25px;
+      font-weight: 800;
+      color: #2600ff;
+      opacity: 0;
+      animation: fadeIn 2s forwards 0.5s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes bounce {
+      0% { transform: scale(0.8); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="https://media.licdn.com/dms/image/v2/D4D03AQFcYa7z_uwdwg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1709322596088?e=1759968000&v=beta&t=L6l7w3XDNWgysKrBaJWaMNif5tQVhlF0IzhiEuX5IHY" alt="Professor fofo">
+    <p>“TMJ LINDÃOOOOOOOOOO! <br><br> <strong>NOTA 100000000</strong></p>
+  </div>
+
+  <!-- Bolinhas de fundo -->
+  <script>
+    const colors = ['#ffb6c1','#ffc0cb','#ff69b4','#ff1493'];
+    for(let i = 0; i < 20; i++){
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      bubble.style.width = bubble.style.height = Math.random() * 40 + 20 + 'px';
+      bubble.style.left = Math.random() * 100 + 'vw';
+      bubble.style.animationDuration = 5 + Math.random() * 10 + 's';
+      bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
+      document.body.appendChild(bubble);
+    }
+  </script>
+</body>
+</html>
